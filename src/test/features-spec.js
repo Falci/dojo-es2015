@@ -54,21 +54,4 @@ describe('ES2015 features', () => {
     expect(fn(...[1, 2, 3])).toEqual(6);
   });
 
-  it('Proxy', () => {
-    var target = {
-      msg: '',
-      toString: () => {
-        return this.msg.trim();
-      }
-    };
-    var handler = {
-      get: function (receiver, name) {
-        receiver.msg += ' ' + name;
-        return receiver;
-      }
-    };
-
-    var p = new Proxy(target, handler);
-    expect( p.this.is.a.test.toString() ).toEqual('this is a test');
-  });
 });
