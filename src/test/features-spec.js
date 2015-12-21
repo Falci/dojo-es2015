@@ -12,7 +12,6 @@ describe('ES2015 features', () => {
     expect(a).toEqual(1);
     expect(b).toEqual(3);
 
-    //
     function fn( {name: n}) {
       return n;
     }
@@ -52,6 +51,21 @@ describe('ES2015 features', () => {
 
     expect(fn(1, 2, 3)).toEqual(6);
     expect(fn(...[1, 2, 3])).toEqual(6);
+  });
+
+  it('Promises', done => {
+    let p = new Promise((resolve, reject) => {
+      setTimeout(resolve, 1000);
+    });
+
+    p.then(done);    
+  });
+
+  it('Reflect API', () => {
+    var object = {a: 1};
+    Object.defineProperty(object, 'b', {value: 2});
+
+    expect(Reflect.ownKeys(object)).toEqual(['a', 'b']);
   });
 
 });

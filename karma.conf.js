@@ -5,21 +5,22 @@ module.exports = function(config) {
         frameworks: ['browserify', 'jasmine'],
 
         files: [
-            'src/app/*.js',
-            'src/app/**/*.js',
-            'src/test/*-spec.js',
-            'src/test/**/*-spec.js'
+          'node_modules/babel-polyfill/dist/polyfill.js',
+          'src/app/*.js',
+          'src/app/**/*.js',
+          'src/test/*-spec.js',
+          'src/test/**/*-spec.js'
         ],
 
         exclude: [],
 
         preprocessors: {
-            'src/**/*.js': ['browserify']
+          'src/**/*.js': ['browserify']
         },
 
         browserify: {
-            debug: true,
-            transform: [ 'babelify' ]
+          debug: true,
+          transform: [ 'babelify' ]
         },
 
         // define reporters, port, logLevel, browsers etc.
